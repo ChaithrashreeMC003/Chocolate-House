@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+{%comment%}
+{% block title%}
+    Enter Ingrediens
+{% endblock %}
+{%block content%}
+    <form method="post" action="">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+            <tr>
+                 <td>
+                    <input type="submit" value="Submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+{% endblock%} {% endcomment %}
+
+{% block content %}
+  <h2>Inventory Records</h2>
+  {% if inventory_records %}
+    <ul>
+      {% for record in inventory_records %}
+        <li>{{ record.name }} - {{ record.description }}</li>  <!-- Adjust attributes as per your model -->
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No inventory records available.</p>
+  {% endif %}
+
+  <h3>Submit New Inventory</h3>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+
+  {% if message %}
+    <p>{{ message }}</p>
+  {% endif %}
+{% endblock %}
+

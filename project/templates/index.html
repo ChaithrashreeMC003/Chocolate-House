@@ -1,0 +1,23 @@
+ {% load static %}
+<html>
+    <title>{%block title%}Chocolate house{%endblock%}</title>
+    <style type="text/css">
+        nav {background-color:lightblue;padding:10px}
+    </style>
+    <body>
+        <h1>Welcome to Chocolate house</h1>
+        <nav>
+            <a href="/seasonalFlavor/">SeasonalFlavors</a>
+            <a href="/ingredient/">Ingredient Inventory</a>
+            <a href="/customer/">Customer Suggestions</a>
+        </nav>
+        <h3>Please click on the service provided above that will direct you</h3>
+        <h2>Thanks</h2>
+        <section>
+            {%block content%}
+            {%endblock%}
+        </section>
+    </body>
+</html>
+
+            
